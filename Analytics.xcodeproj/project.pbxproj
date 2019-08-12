@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3481C14AEC76E5A8DA64DA59 /* Pods_AnalyticsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89033CBF22319674E6CE7E61 /* Pods_AnalyticsTests.framework */; };
+		47090D962302010C00B7FED0 /* SEGFuboUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 47090D942302010C00B7FED0 /* SEGFuboUserDefaults.m */; };
+		47090D972302010C00B7FED0 /* SEGFuboUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 47090D952302010C00B7FED0 /* SEGFuboUserDefaults.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		6E265C791FB1178C0030E08E /* IntegrationsManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E265C781FB1178C0030E08E /* IntegrationsManagerTest.swift */; };
 		6EEC1C712017EA370089C478 /* EndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEC1C702017EA370089C478 /* EndToEndTests.swift */; };
 		EA88A5981DED7608009FB66A /* SEGSerializableValue.h in Headers */ = {isa = PBXBuildFile; fileRef = EA88A5971DED7608009FB66A /* SEGSerializableValue.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -89,6 +91,9 @@
 
 /* Begin PBXFileReference section */
 		1DF03A6929EEFE7158913224 /* Pods-AnalyticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnalyticsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnalyticsTests/Pods-AnalyticsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		47090D942302010C00B7FED0 /* SEGFuboUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGFuboUserDefaults.m; sourceTree = "<group>"; };
+		47090D952302010C00B7FED0 /* SEGFuboUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGFuboUserDefaults.h; sourceTree = "<group>"; };
+		47B166172301D5AE00CEC359 /* Analytics.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Analytics.podspec; sourceTree = "<group>"; };
 		6E265C781FB1178C0030E08E /* IntegrationsManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationsManagerTest.swift; sourceTree = "<group>"; };
 		6EEC1C702017EA370089C478 /* EndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndToEndTests.swift; sourceTree = "<group>"; };
 		89033CBF22319674E6CE7E61 /* Pods_AnalyticsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnalyticsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +224,7 @@
 		EADEB8511DECD080005322DA = {
 			isa = PBXGroup;
 			children = (
+				47B166172301D5AE00CEC359 /* Analytics.podspec */,
 				EADEB85D1DECD080005322DA /* Analytics */,
 				EADEB86B1DECD0EF005322DA /* AnalyticsTests */,
 				EADEB85C1DECD080005322DA /* Products */,
@@ -340,6 +346,8 @@
 				EADEB89B1DECD12B005322DA /* SEGStorage.h */,
 				EADEB89C1DECD12B005322DA /* SEGStoreKitTracker.h */,
 				EADEB89D1DECD12B005322DA /* SEGStoreKitTracker.m */,
+				47090D952302010C00B7FED0 /* SEGFuboUserDefaults.h */,
+				47090D942302010C00B7FED0 /* SEGFuboUserDefaults.m */,
 				EADEB89E1DECD12B005322DA /* SEGUserDefaultsStorage.h */,
 				EADEB89F1DECD12B005322DA /* SEGUserDefaultsStorage.m */,
 				EADEB8A01DECD12B005322DA /* SEGUtils.h */,
@@ -413,6 +421,7 @@
 				EADEB8601DECD080005322DA /* Analytics.h in Headers */,
 				EADEB8C31DECD12B005322DA /* SEGAnalyticsUtils.h in Headers */,
 				EADEB8B91DECD12B005322DA /* SEGIntegrationsManager.h in Headers */,
+				47090D972302010C00B7FED0 /* SEGFuboUserDefaults.h in Headers */,
 				EADEB8AE1DECD12B005322DA /* SEGAES256Crypto.h in Headers */,
 				EADEB8C51DECD12B005322DA /* SEGFileStorage.h in Headers */,
 				EAA5427D1EB42B8C00945DA7 /* SEGReachability.h in Headers */,
@@ -486,6 +495,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = EADEB8511DECD080005322DA;
@@ -584,6 +594,7 @@
 				EADEB8C61DECD12B005322DA /* SEGFileStorage.m in Sources */,
 				EADEB8D31DECD12B005322DA /* SEGUserDefaultsStorage.m in Sources */,
 				EADEB8BC1DECD12B005322DA /* SEGPayload.m in Sources */,
+				47090D962302010C00B7FED0 /* SEGFuboUserDefaults.m in Sources */,
 				EADEB8C21DECD12B005322DA /* NSData+SEGGZIP.m in Sources */,
 				EADEB8D91DECD12B005322DA /* SEGContext.m in Sources */,
 				EADEB8DB1DECD12B005322DA /* SEGMiddleware.m in Sources */,

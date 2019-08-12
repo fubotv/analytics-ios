@@ -13,7 +13,7 @@
 
 @implementation SEGUserDefaultsStorage
 
-- (instancetype)initWithDefaults:(NSUserDefaults *)defaults namespacePrefix:(NSString *)namespacePrefix crypto:(id<SEGCrypto>)crypto
+- (instancetype)initWithDefaults:(SEGFuboUserDefaults *)defaults namespacePrefix:(NSString *)namespacePrefix crypto:(id<SEGCrypto>)crypto
 {
     if (self = [super init]) {
         _defaults = defaults;
@@ -30,20 +30,7 @@
 
 - (void)resetAll
 {
-    // Courtesy of http://stackoverflow.com/questions/6358737/nsuserdefaults-reset
-    if (!self.namespacePrefix) {
-        NSString *domainName = [[NSBundle mainBundle] bundleIdentifier];
-        if (domainName) {
-            [self.defaults removePersistentDomainForName:domainName];
-            return;
-        }
-    }
-    for (NSString *key in self.defaults.dictionaryRepresentation.allKeys) {
-        if (!self.namespacePrefix || [key hasPrefix:self.namespacePrefix]) {
-            [self.defaults removeObjectForKey:key];
-        }
-    }
-    [self.defaults synchronize];
+    [self.defaults removeAll];
 }
 
 - (void)setData:(NSData *)data forKey:(NSString *)key
@@ -75,7 +62,7 @@
 {
     if (!self.crypto) {
         key = [self namespacedKey:key];
-        return [self.defaults dictionaryForKey:key];
+        return [self.defaults objectForKey:key];
     }
     return [self plistForKey:key];
 }
@@ -94,7 +81,7 @@
 {
     if (!self.crypto) {
         key = [self namespacedKey:key];
-        return [self.defaults arrayForKey:key];
+        return [self.defaults objectForKey:key];
     }
     return [self plistForKey:key];
 }
@@ -113,7 +100,7 @@
 {
     if (!self.crypto) {
         key = [self namespacedKey:key];
-        return [self.defaults stringForKey:key];
+        return [self.defaults objectForKey:key];
     }
     return [self plistForKey:key];
 }

@@ -24,6 +24,7 @@
 #import "SEGGroupPayload.h"
 #import "SEGScreenPayload.h"
 #import "SEGAliasPayload.h"
+#import "SEGFuboUserDefaults.h"
 
 NSString *SEGAnalyticsIntegrationDidStart = @"io.segment.analytics.integration.did.start";
 static NSString *const SEGAnonymousIdKey = @"SEGAnonymousId";
@@ -71,7 +72,13 @@ static NSString *const kSEGAnonymousIdFilename = @"segment.anonymousId";
         self.serialQueue = seg_dispatch_queue_create_specific("io.segment.analytics", DISPATCH_QUEUE_SERIAL);
         self.messageQueue = [[NSMutableArray alloc] init];
         self.httpClient = [[SEGHTTPClient alloc] initWithRequestFactory:configuration.requestFactory];
-        self.storage = [[SEGFileStorage alloc] initWithFolder:[SEGFileStorage applicationSupportDirectoryURL] crypto:configuration.crypto];
+//        self.storage = [[SEGFileStorage alloc] initWithFolder:[SEGFileStorage applicationSupportDirectoryURL] crypto:configuration.crypto];
+        #if TARGET_OS_TV
+                self.storage = [[SEGUserDefaultsStorage alloc] initWithDefaults:[[SEGFuboUserDefaults alloc] init] namespacePrefix:nil crypto:configuration.crypto];
+        #else
+                self.storage = [[SEGFileStorage alloc] initWithFolder:[SEGFileStorage applicationSupportDirectoryURL] crypto:configuration.crypto];
+        #endif
+
         self.cachedAnonymousId = [self loadOrGenerateAnonymousID:NO];
         NSMutableArray *factories = [[configuration factories] mutableCopy];
         [factories addObject:[[SEGSegmentIntegrationFactory alloc] initWithHTTPClient:self.httpClient storage:self.storage]];
