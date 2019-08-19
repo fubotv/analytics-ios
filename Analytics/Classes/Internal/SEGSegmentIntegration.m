@@ -589,7 +589,7 @@ static CTTelephonyNetworkInfo *_telephonyNetworkInfo;
 {
     if (!_queue) {
 #if TARGET_OS_TV
-        _queue = [[self.storage arrayForKey:SEGQueueKey] ?: @[] mutableCopy];
+        _queue = [@[] mutableCopy];
 #else
         _queue = [[self.storage arrayForKey:kSEGQueueFilename] ?: @[] mutableCopy];
 #endif
@@ -624,7 +624,7 @@ static CTTelephonyNetworkInfo *_telephonyNetworkInfo;
 - (void)persistQueue
 {
 #if TARGET_OS_TV
-    [self.storage setArray:[self.queue copy] forKey:SEGQueueKey];
+//    [self.storage setArray:[self.queue copy] forKey:SEGQueueKey];
 #else
     [self.storage setArray:[self.queue copy] forKey:kSEGQueueFilename];
 #endif
