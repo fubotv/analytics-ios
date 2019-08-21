@@ -461,7 +461,7 @@ static CTTelephonyNetworkInfo *_telephonyNetworkInfo;
 - (void)queuePayload:(NSDictionary *)payload
 {
     @try {
-        if (self.queue.count > 1000) {
+        if (self.queue.count > 350) {
             // Remove the oldest element.
             [self.queue removeObjectAtIndex:0];
         }
